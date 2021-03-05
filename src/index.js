@@ -41,7 +41,7 @@ module.exports = function toReadable(num) {
         result = dict.get(num_s.slice(-3, -2)) + ' hundred ';
     }
 
-    if (dict.has(num_s.slice(-2))) { // num = [.10] - [.19]
+    if (dict.has(num_s.slice(-2))) { // num = [.10]-[.19] || [.x0]
         return result + dict.get(num_s.slice(-2));
     }
 
