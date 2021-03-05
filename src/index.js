@@ -37,20 +37,23 @@ module.exports = function toReadable(num) {
         return 'zero';
     }
 
-    if (num > 99) { // num = [x__]
+    // num = [x__]
+    if (num > 99) {
         result = dict.get(num_s.slice(-3, -2)) + ' hundred ';
     }
 
-    if (dict.has(num_s.slice(-2))) { // num = [.10]-[.19] || [.x0]
+    // num = [.10]-[.19] || [.x0]
+    if (dict.has(num_s.slice(-2))) {
         return result + dict.get(num_s.slice(-2));
     }
 
-    if (num_s.slice(-2, -1) != '0') { // num = [.x_]
+    // num = [.x_]
+    if (num_s.slice(-2, -1) != '0') {
         result += dict.get(num_s.slice(-2, -1) + '0') + ' ';
     }
 
-    result += dict.get(num_s.slice(-1)); // num = [..x]
+    // num = [..x]
+    result += dict.get(num_s.slice(-1));
 
     return result.trim();
-
 }
